@@ -1,9 +1,6 @@
 package DataDriventesting;
 
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -125,6 +122,30 @@ public class XLUtility {
         fi.close();
         fo.close();
 
+    }
+
+    public String[][] getDataFromSheet(String workbookLocation,String WorkSheetName) throws  IOException{
+
+        workbook=new XSSFWorkbook(System.getProperty("user.dir")+"/"+workbookLocation);
+        sheet=workbook.getSheet(WorkSheetName);
+        int  noOfRows=sheet.getLastRowNum() +1;
+        int noOfColumns=sheet.getRow(0).getLastCellNum();
+        String[][] dataTable=new String[noOfRows][noOfColumns];
+
+        for(int i=sheet.getLastRowNum();i<sheet.getLastRowNum()+1; i++){
+
+            Row row=sheet.getRow(i);
+
+            for(int j=row.getFirstCellNum();j<row.getLastCellNum();j++){
+                Cell cell= row.getCell(j);
+                dataTable[i][j]=cell.getStringCellValue();
+
+            }
+
+
+        }
+        workbook.close();
+        return dataTable;
     }
 
 
