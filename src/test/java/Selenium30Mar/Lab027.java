@@ -6,40 +6,47 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import javax.swing.*;
 import java.time.Duration;
 
-public class Lab024 {
+public class Lab027 {
 
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://w3.p2hp.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick3");
+        driver.get("https://testautomationpractice.blogspot.com/");
         driver.manage().window().maximize();
 
-        driver.switchTo().frame("iframeResult");
+        Actions act=new Actions(driver);
+
         WebElement box1=driver.findElement(By.xpath("//input[@id='field1']"));
         WebElement box2= driver.findElement(By.xpath("//input[@id='field2']"));
 
-       WebElement button= driver.findElement(By.xpath("//button[text()='Copy Text']"));
+        WebElement button= driver.findElement(By.xpath("//button[@ondblclick='myFunction1()']"));
 
-       box1.clear();
-       box1.sendKeys("WELCOME");
+        box1.clear();
 
-        Actions act=new Actions(driver);
-        act.doubleClick(button).perform();
+        box1.sendKeys("WELCOME");
+       act.doubleClick(button).perform();
 
-        String text=box2.getAttribute("value");
-        System.out.println("Captured value" +text);
+        String text= box2.getAttribute("value");
+        System.out.println("text entered in the input field" +text);
 
         if(text.equals("WELCOME")){
-
             System.out.println("Text copied");
-        }else {
-            System.out.println("Text not copied properly");
+        }else{
+            System.out.println("Text didnt copy");
         }
+
+        driver.quit();
+
+
+
+
+
 
 
 
     }
+
 }
+

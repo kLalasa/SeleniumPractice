@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
@@ -19,12 +20,15 @@ public class Lab023 {
 
        Actions act=new Actions(driver);
 
-       act.contextClick(button).perform();
+      Action myaction= act.contextClick(button).build();//creating an action and storing in a variable
+      myaction.perform();//completing the action
 
        driver.findElement(By.xpath("//li[@class='context-menu-item context-menu-icon context-menu-icon-copy']")).click();
 
        driver.switchTo().alert().accept();
 
+       //Actions -class, will be used to perform mouse actions
+        //Action -interface, will be used to store created actions
 
     }
 }
