@@ -16,7 +16,7 @@ public class Lab009 {
 
     EdgeDriver driver;
 
-    @BeforeTest
+@Test(priority = 1)
     public void openBrowser(){
 
         EdgeOptions edgeOptions=new EdgeOptions();
@@ -26,7 +26,7 @@ public class Lab009 {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
-    @Test
+    @Test(priority = 2)
 
 
     public void positiveTest()throws InterruptedException{
@@ -77,7 +77,7 @@ public class Lab009 {
 
 
     }
-    @AfterTest
+    @Test(priority = 3)
     public void closeBrowser(){driver.quit();
 
     }

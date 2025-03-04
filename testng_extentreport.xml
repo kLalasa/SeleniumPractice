@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <listeners>
+        <listener class-name="Selenium30Mar.Listeners.ExtentReportManager">
+
+        </listener>
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/klala/IdeaProjects/SeleniumLearning/src/test/java/Selenium30Mar/Listeners">
+        <classes>
+            <class name="Selenium30Mar.Listeners.OrangeHRM">
+                <methods>
+                    <include name="testLogo"/>
+                    <include name="testAppUrl"/>
+                    <include name="testHomePageTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

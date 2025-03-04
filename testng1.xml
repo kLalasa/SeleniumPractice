@@ -4,11 +4,7 @@
     <test verbose="2" preserve-order="true"
           name="C:/Users/klala/IdeaProjects/SeleniumLearning/src/test/java/Assignment">
         <classes>
-            <class name="Assignment.Lab001">
-                <methods>
-                    <include name="test"/>
-                </methods>
-            </class>
+
             <class name="Assignment.Lab002">
                 <methods>
                     <include name="testPositive"/>
